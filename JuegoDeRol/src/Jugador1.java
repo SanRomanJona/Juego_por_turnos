@@ -26,7 +26,11 @@ public class Jugador1 {
 	public int generadorDeFuerza() {
 		numero = (int) (Math.random() * fuerza) + 1;
 		return numero;
-		
 	}
-		
+	private boolean compruebaNombre(){
+    if(nombre.equals("")){
+        return false;
+    }
+    return true;
+    }
 }

@@ -23,8 +23,16 @@ public class Jugador2 {
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
 	}
-	public void generadorDeFuerza() {
-		numero = (int) (Math.random() * fuerza) + 1;
-		
+	
+	public int generadorDeFuerza() {
+	 numero = (int) (Math.random() * fuerza) + 1;
+	 return numero;
 	}
+	
+	private boolean compruebaNombre(String nombre){
+    if(nombre.equals("")){
+        return false;
+    }
+    return true;
+    }
 }
