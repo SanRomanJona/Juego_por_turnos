@@ -63,15 +63,13 @@ public class Principal {
 			obj1.recibegolpe(obj2.getFuerza());
 
 			JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj1.getNombre() + " es de:" + obj1.getVida());
-
-
-			if(obj1.getVida()<=0 && obj2.getVida() <= 0) {
-				JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre());
-			}else {
-				JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre());
-			}
 		}
 
+		if(obj1.getVida()<=0) {
+			JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre());
+		}else {
+			JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre());
+		}
 
 	}
 }
