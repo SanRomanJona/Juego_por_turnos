@@ -17,7 +17,7 @@ public class Jugador1 {
 		return vida;
 	}
 	public void setVida(int vida) {
-		this.vida = vida;
+		this.vida -= vida;
 	}
 	
 	
@@ -30,11 +30,11 @@ public class Jugador1 {
 	
 	
 	public int generadorDeFuerza() {
-		return numero = (int) Math.floor((Math.random() * getFuerza()) + 1);
+		return  (int) Math.floor((Math.random() * getFuerza()) + 1);
 	}
 	
-	public int recibegolpe(int a) {
-	vida -= a; return vida;
-	};
+	public void recibegolpe(int a) {
+		setVida(a); 
+	}
 	
 }

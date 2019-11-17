@@ -7,24 +7,22 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		String nombre;
-		int vida1=0, vida2=0, valor=0, numeroTurno =0;
-		float fuerfinal = 0; 
-		
+		int vida1=0, vida2=0, valor=0, valor2=0, numeroTurno =0;
+
 		Jugador1 obj1 = new Jugador1();
 		Jugador1 obj2 = new Jugador2();
 
 		String nombre1 = JOptionPane.showInputDialog(null, "El primero como deveria llamarse?");
 		obj1.setNombre(nombre1);
-		
+
 		String nombre2  = JOptionPane.showInputDialog(null, "Ahora vamos a colocarle el nombre al jugador numero 2, como deveria llamarce?");
 		obj2.setNombre(nombre2);
 
 		valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta fuerza va a tener: "+ obj1.getNombre()+ " ?")); 
-		valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta fuerza va a tener: "+ obj2.getNombre()+ " ?"));
-		
+		valor2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta fuerza va a tener: "+ obj2.getNombre()+ " ?"));
+
 		obj1.setFuerza(valor);
-		obj2.setFuerza(valor);
+		obj2.setFuerza(valor2);
 
 
 		vida1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta vida va a tener: " + obj1.getNombre()+ " ?"));
@@ -35,50 +33,45 @@ public class Principal {
 
 
 		while(obj1.getVida() >= 0 && obj2.getVida() >= 0) {
-				
+
 			// Contador de Ronda
-			
+
 			numeroTurno++;
-			
-			JOptionPane.showInternalMessageDialog(null, "Ronda numero: " + numeroTurno);
-			
+
+			JOptionPane.showMessageDialog(null, "Ronda numero: " + numeroTurno);
+
 			//El jugador numero 1 hace el ataque
-			
-			JOptionPane.showInternalMessageDialog(null,"El Jugador "+ obj1.getNombre()+ " se prepara para atacar!!" );	
-			
-			obj1.setFuerza(obj1.generadorDeFuerza());
+
+			JOptionPane.showMessageDialog(null, "El Jugador "+ obj1.getNombre()+ " se prepara para atacar!!" );	
 
 
-			System.out.println("A realizado un golpe de "+ obj1.getFuerza());
+			JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj1.getFuerza());
 
-			obj2.recibegolpe(obj1.getFuerza() );
+			obj2.recibegolpe(obj1.getFuerza());
 
-			System.out.println("Vida restante del oponente: "+ obj2.getNombre() + " es de:" + obj2.getVida());
+			JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj2.getNombre() + " es de:" + obj2.getVida());
 
-			
+
 
 			//Ataca el jugador 2 ------------------------------
 
-			System.out.println("El Jugador "+ obj2.getNombre()+ " se prepara para atacar!!");
+			JOptionPane.showMessageDialog(null, "El Jugador "+ obj2.getNombre()+ " se prepara para atacar!!" );	
 
-			obj2.setFuerza(obj2.generadorDeFuerza());
 
-			System.out.println(" ");
+			JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj2.getFuerza());
 
-			System.out.println("A realizado un golpe de "+ obj2.getFuerza());
+			obj1.recibegolpe(obj2.getFuerza());
 
-			obj1.recibegolpe(obj2.getFuerza() );
+			JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj1.getNombre() + " es de:" + obj1.getVida());
 
-			System.out.println("Vida restante del oponente: "+ obj1.getNombre() + " es de:" + obj1.getVida());
 
-			System.out.println(" ");
-
+			if(obj1.getVida()<=0 && obj2.getVida() <= 0) {
+				JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre());
+			}else {
+				JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre());
+			}
 		}
-		
-		if(obj1.getVida()<=0) {
-			System.out.println("El ganador es el jugador: "+ obj2.getNombre());}
-		else {
-			System.out.println("El ganador es el jugador: "+ obj1.getNombre());
-		}
+
+
 	}
 }
