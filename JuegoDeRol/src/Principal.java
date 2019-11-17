@@ -8,8 +8,8 @@ public class Principal {
 	public static void main(String[] args) {
 
 		String nombre;
-		int vida1=0, vida2=0, valor=0;
-		float fuerfinal = 0;
+		int vida1=0, vida2=0, valor=0, numeroTurno =0;
+		float fuerfinal = 0; 
 		
 		Jugador1 obj1 = new Jugador1();
 		Jugador1 obj2 = new Jugador2();
@@ -35,14 +35,19 @@ public class Principal {
 
 
 		while(obj1.getVida() >= 0 && obj2.getVida() >= 0) {
-
+				
+			// Contador de Ronda
+			
+			numeroTurno++;
+			
+			JOptionPane.showInternalMessageDialog(null, "Ronda numero: " + numeroTurno);
+			
 			//El jugador numero 1 hace el ataque
-
+			
 			JOptionPane.showInternalMessageDialog(null,"El Jugador "+ obj1.getNombre()+ " se prepara para atacar!!" );	
 			
 			obj1.setFuerza(obj1.generadorDeFuerza());
 
-			System.out.println(" ");
 
 			System.out.println("A realizado un golpe de "+ obj1.getFuerza());
 
@@ -50,9 +55,9 @@ public class Principal {
 
 			System.out.println("Vida restante del oponente: "+ obj2.getNombre() + " es de:" + obj2.getVida());
 
-			System.out.println(" ");
+			
 
-			//Ataca el jugador 2
+			//Ataca el jugador 2 ------------------------------
 
 			System.out.println("El Jugador "+ obj2.getNombre()+ " se prepara para atacar!!");
 
