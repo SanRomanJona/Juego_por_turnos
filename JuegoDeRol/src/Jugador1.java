@@ -1,9 +1,9 @@
 
 public class Jugador1 {
-	private String nombre;
-	private int vida;
-	private int fuerza;
-	private int numero;
+	 String nombre;
+	 int vida;
+	 int fuerza;
+	 int numero;
 	
 	public String getNombre() {
 		return nombre;
@@ -11,26 +11,30 @@ public class Jugador1 {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	
 	public int getVida() {
 		return vida;
 	}
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
+	
+	
 	public int getFuerza() {
 		return fuerza;
 	}
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
 	}
+	
+	
 	public int generadorDeFuerza() {
-		numero = (int) (Math.random() * fuerza) + 1;
-		return numero;
+		return numero = (int) Math.floor((Math.random() * getFuerza()) + 1);
 	}
-	private boolean compruebaNombre(){
-    if(nombre.equals("")){
-        return false;
-    }
-    return true;
-    }
+	
+	public int recibegolpe(int a) {
+	vida -= a; return vida;
+	};
+	
 }
