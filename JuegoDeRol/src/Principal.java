@@ -34,7 +34,7 @@ public class Principal {
 		obj2.setVida(vida2);
 
 
-		while((obj1.getVida() && obj2.getVida()) >= 0) {
+		while(obj1.getVida() >= 0 && obj2.getVida() >= 0) {
 
 			//El jugador numero 1 hace el ataque
 
