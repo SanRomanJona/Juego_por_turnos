@@ -26,13 +26,13 @@ public class Principal {
 
 
 		vida1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta vida va a tener: " + obj1.getNombre()+ " ?"));
-		vida2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta vida va a tener: " + obj2.getNombre()+ " ?"));
-
 		obj1.setVida(vida1);
+
+		vida2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuanta vida va a tener: " + obj2.getNombre()+ " ?"));
 		obj2.setVida(vida2);
 
 
-		while(obj1.getVida() >= 0 && obj2.getVida() >= 0) {
+		do {
 
 			// Contador de Ronda
 
@@ -45,31 +45,44 @@ public class Principal {
 			JOptionPane.showMessageDialog(null, "El Jugador "+ obj1.getNombre()+ " se prepara para atacar!!" );	
 
 
-			JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj1.getFuerza());
+			JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj1.generadorDeFuerza(obj1.getFuerza() ));
 
 			obj2.recibegolpe(obj1.getFuerza());
 
 			JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj2.getNombre() + " es de:" + obj2.getVida());
 
+			if(obj1.getVida()<=0 || obj2.getVida() <=0) {
+
+				if(obj1.getVida()<=0){
+					JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre()); break;
+				} else {
+					JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre()); break;
+				}
+			}
+
+				//Ataca el jugador 2 ------------------------------
+
+				JOptionPane.showMessageDialog(null, "El Jugador "+ obj2.getNombre()+ " se prepara para atacar!!" );	
 
 
-			//Ataca el jugador 2 ------------------------------
+				JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj2.generadorDeFuerza(obj2.getFuerza() ));
 
-			JOptionPane.showMessageDialog(null, "El Jugador "+ obj2.getNombre()+ " se prepara para atacar!!" );	
+				obj1.recibegolpe(obj2.getFuerza());
 
+				JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj1.getNombre() + " es de:" + obj1.getVida());
 
-			JOptionPane.showMessageDialog(null, "A realizado un golpe de "+ obj2.getFuerza());
+				if(obj1.getVida()<=0 || obj2.getVida() <=0) {
 
-			obj1.recibegolpe(obj2.getFuerza());
+					if(obj1.getVida()<=0){
+						JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre()); break;
+					} else {
+						JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre()); break;
+					}
+				}
 
-			JOptionPane.showMessageDialog(null, "Vida restante del oponente: "+ obj1.getNombre() + " es de:" + obj1.getVida());
-		}
+				}while(obj1.getVida() >= 0 && obj2.getVida() >= 0);
+			}
 
-		if(obj1.getVida()<=0) {
-			JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj2.getNombre());
-		}else {
-			JOptionPane.showMessageDialog(null, "El ganador es el jugador: "+ obj1.getNombre());
-		}
-
+		
 	}
-}
+
